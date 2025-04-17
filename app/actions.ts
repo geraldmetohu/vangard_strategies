@@ -8,8 +8,7 @@ import exp from "constants";
 import { redis } from "./lib/redis";
 import { Cart } from "./lib/interfaces";
 import { revalidatePath } from "next/cache";
-import { stripe } from "./lib/stripe";
-import Stripe from "stripe";
+//import Stripe from "stripe";
 
 export async function CreateProduct(prevState: unknown,formData: FormData) {
     const { getUser} = getKindeServerSession();
@@ -241,7 +240,7 @@ export async function delItem(formData: FormData) {
     revalidatePath("/bag");
     
 }
-
+/*
 export async function checkOut() {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
@@ -280,7 +279,7 @@ export async function checkOut() {
     }
 
 }
-
+*/
 export async function updateQuantity(formData: FormData) {
     const { getUser } = getKindeServerSession();
     const user = await getUser();

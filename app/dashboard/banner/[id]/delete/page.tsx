@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { DeleteBanner } from "@/app/actions";
 import { SubmitButton } from "@/app/componets/SubmitButtons";
 import { Button } from "@/components/ui/button";
@@ -8,7 +10,7 @@ export default function DeleteBannerRoute({params}: {params: {id: string};}) {
 
     return (
 
-        <div className="h-[88vh w-full flex items-center justify-center">
+        <div className="h-[88vh] w-full flex items-center justify-center">
             <Card className="max-w-xl">
                 <CardHeader>
                     <CardTitle>Are you sure you want to delete this banner</CardTitle>
