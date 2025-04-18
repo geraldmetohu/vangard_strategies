@@ -1,4 +1,4 @@
-import { prisma } from "@/app/lib/db";
+/*import { prisma } from "@/app/lib/db";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DollarSign, PartyPopper, PoundSterling, ShoppingBag, User2 } from "lucide-react";
 
@@ -74,4 +74,4 @@ export async function DashboardStats() {
         </Card>
     </div>
     )
-}
+}*/

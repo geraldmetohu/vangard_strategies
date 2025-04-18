@@ -1,4 +1,4 @@
-import { prisma } from "@/app/lib/db";
+/*import { prisma } from "@/app/lib/db";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -89,4 +89,4 @@ export default async function ProductsRoute() {
         </>
     );
 
-}
+}*/

@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 async function getData() {
-    const data = await prisma.order.findMany( {
+    /*const data = await prisma.order.findMany( {
         select: {
             amount: true,
             createdAt: true,
@@ -22,10 +22,10 @@ async function getData() {
         },
         
     });
-    return data;
+    return data;*/
 }
 export default async function OrdersPage(){
-    const data = await getData();
+    /*const data = await getData();
     return(
         <Card>
             <CardHeader className="px-7">
@@ -61,5 +61,5 @@ export default async function OrdersPage(){
                 </Table>
             </CardContent>
         </Card>
-    );
+    );*/
 }

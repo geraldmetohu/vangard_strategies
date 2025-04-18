@@ -1,5 +1,5 @@
 "use client";
-import { CreateProduct } from "@/app/actions";
+/*import { CreateProduct } from "@/app/actions";
 import { UploadDropzone } from "@/app/lib/uploadthing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -140,4 +140,4 @@ export default function ProductCreateRoute(){
             </Card>
         </form>
     );
-} 
+} */
