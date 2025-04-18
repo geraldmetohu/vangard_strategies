@@ -1,16 +1,16 @@
 "use server";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+//import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
-import {parseWithZod} from "@conform-to/zod"
-import { bannerSchema, ProductSchema } from "./lib/zodSchemas";
-import { prisma } from "./lib/db";
+//import {parseWithZod} from "@conform-to/zod"
+//import { bannerSchema, ProductSchema } from "./lib/zodSchemas";
+//import { prisma } from "./lib/db";
 import exp from "constants";
 import { redis } from "./lib/redis";
 import { Cart } from "./lib/interfaces";
 import { revalidatePath } from "next/cache";
 //import Stripe from "stripe";
 
-export async function CreateProduct(prevState: unknown,formData: FormData) {
+/*export async function CreateProduct(prevState: unknown,formData: FormData) {
     const { getUser} = getKindeServerSession();
     const user = await getUser();
 
@@ -40,9 +40,9 @@ export async function CreateProduct(prevState: unknown,formData: FormData) {
     });
 
     redirect("/dashboard/products");
-}
+}*/
 
-export async function EditProduct(prevState: any,formData: FormData ) {
+/*export async function EditProduct(prevState: any,formData: FormData ) {
     const { getUser} = getKindeServerSession();
     const user = await getUser();
 
@@ -77,9 +77,9 @@ export async function EditProduct(prevState: any,formData: FormData ) {
 
     redirect("/dashboard/products");
 
-}
+}*/
 
-export async function DeleteProduct(formData: FormData) {
+/*export async function DeleteProduct(formData: FormData) {
     const { getUser} = getKindeServerSession();
     const user = await getUser();
 
@@ -103,7 +103,7 @@ export async function DeleteProduct(formData: FormData) {
     redirect("/dashboard/products");
     
 }
-
+*/ /*
 export async function CreateBanner(prevState: any, formData: FormData) {
     const { getUser} = getKindeServerSession();
     const user = await getUser();
@@ -129,8 +129,8 @@ export async function CreateBanner(prevState: any, formData: FormData) {
 
     redirect("/dashboard/banner");
 
-}
-
+} */
+/*
 export async function DeleteBanner (formData: FormData) {
     const { getUser} = getKindeServerSession();
     const user = await getUser();
@@ -146,7 +146,7 @@ export async function DeleteBanner (formData: FormData) {
     });
     redirect("/dashboard/banner");
 }
-    
+    */  /*
 export async function addItem(productId: string){
     const {getUser} = getKindeServerSession();
     const user = await getUser();
@@ -214,7 +214,7 @@ export async function addItem(productId: string){
 
     revalidatePath("/","layout")
 }
-
+*/ /*
 
 export async function delItem(formData: FormData) {
     const { getUser } = getKindeServerSession();
@@ -240,7 +240,7 @@ export async function delItem(formData: FormData) {
     revalidatePath("/bag");
     
 }
-/*
+*/ /*
 export async function checkOut() {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
@@ -280,7 +280,7 @@ export async function checkOut() {
 
 }
 */
-export async function updateQuantity(formData: FormData) {
+/* export async function updateQuantity(formData: FormData) {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
 
@@ -310,3 +310,4 @@ export async function updateQuantity(formData: FormData) {
 
     revalidatePath("/bag");
 }
+*/

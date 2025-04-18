@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { NavbarLinks } from "./NavBarLinks";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { UserDropdown } from "./UserDropdown";
+//import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+//import { UserDropdown } from "./UserDropdown";
 import { Button } from "@/components/ui/button";
 import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { redis } from "@/app/lib/redis";
@@ -15,11 +15,11 @@ import { DialogTitle } from '@radix-ui/react-dialog';
 
 export async function NavBar() {
   // This function runs in a Node.js server environment.
-  const { getUser } = getKindeServerSession();
+  /*const { getUser } = getKindeServerSession();
   const user = await getUser();
   const cart: Cart | null = await redis.get(`cart-${user?.id}`);
   const total = cart?.items.reduce((sum, item) => sum + item.quantity, 0) || 0;
-
+*/
   return (
 <nav className="sticky top-0 z-50 w-full bg-[#030712] text-[#fefce8]">
   <div className=" mx-2 px-4 sm:px-6 lg:pl-8 pr-0 py-4">
@@ -52,7 +52,7 @@ export async function NavBar() {
           {/* Column 8: Spacer */}
           <div className="col-span-1"></div>
 
-          {/* Columns 9-10: Auth Buttons or User Dropdown */}
+          {/* Columns 9-10: Auth Buttons or User Dropdown 
           <div className="col-span-2 flex justify-evenly items-center space-x-1">
             {user ? (
               <UserDropdown
@@ -80,7 +80,7 @@ export async function NavBar() {
                 </Button>
               </>
             )}
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Header (visible below md) */}
@@ -117,18 +117,18 @@ export async function NavBar() {
                 <VisuallyHidden>
                   <DialogTitle>Navigation Menu</DialogTitle>
                 </VisuallyHidden>
-                <div className="flex flex-col space-y-4">
-                  {/* First: Navigation Links as a vertical list */}
+                 {/*<div className="flex flex-col space-y-4">
+                  {/* First: Navigation Links as a vertical list }
                   <div>
                     <NavbarLinks vertical={true} />
                   </div>
-                  {/* Second: Auth Buttons or User Dropdown, arranged vertically */}
+                  {/* Second: Auth Buttons or User Dropdown, arranged vertically }
                   {user ? (
                     <UserDropdown
                       email={user.email as string}
                       name={user.given_name as string}
                       userImage={
-                        user.picture ??
+                        user.picture ?? 
                         `https://avatar.vercel.sh/${user.given_name}`
                       }
                     />
@@ -150,7 +150,7 @@ export async function NavBar() {
                       </Button>
                     </div>
                   )}
-                </div>
+                </div> */}
               </SheetContent>
             </Sheet>
           </div>

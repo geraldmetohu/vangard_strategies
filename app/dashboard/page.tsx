@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+/*import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
@@ -53,4 +53,4 @@ export default async function Dashboard() {
         </>
 
     )
-}
+}*/
