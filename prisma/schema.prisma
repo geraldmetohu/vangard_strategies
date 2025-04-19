@@ -16,20 +16,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id           String    @id
-  email        String    @unique
-  firstName    String    @map("first_name")
-  lastName     String    @map("last_name")
-  profileImage String    @map("profile_image")
-  createdAt    DateTime  @default(now()) @map("created_at")
-
-  companies    Company[] 
-
-  @@map("users")
-}
-
-
 model Company {
   id        String    @id
   name      String
@@ -43,3 +29,17 @@ model Company {
   @@index([userId], name: "idx_companies_user_id")
   @@map("companies")
 }
+
+model User {
+  id           String     @id
+  email        String     @unique
+  firstName    String     @map("first_name")
+  lastName     String     @map("last_name")
+  profileImage String     @map("profile_image")
+  createdAt    DateTime   @default(now()) @map("created_at")
+
+  companies    Company[]  // <- this back‑relation
+
+  @@map("users")
+}
+
