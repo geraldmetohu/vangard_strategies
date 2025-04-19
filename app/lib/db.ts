@@ -1,9 +1,17 @@
-// lib/prisma.ts
+// app/lib/db.ts
 import { PrismaClient } from "@prisma/client";
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
+declare global {
+  // ensure we reuse the client in dev to avoid connection storms
+  // eslint-disable-next-line no-var
+  var __prisma: PrismaClient | undefined;
+}
 
 export const prisma =
-  globalForPrisma.prisma || new PrismaClient();
+  global.__prisma ??
+  new PrismaClient({
+    // you can adjust log levels here if you like
+    log: ["query", "warn"],
+  });
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== "production") global.__prisma = prisma;

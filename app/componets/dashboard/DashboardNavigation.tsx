@@ -1,4 +1,4 @@
-/*"use client";
+"use client";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,11 +15,7 @@ const links = [
     },
     {
         name: "Products",
-        href: "/dashboard/products",
-    },
-    {
-        name: "Banner Picture",
-        href: "/dashboard/banner",  
+        href: "/dashboard/companies",
     }
 ];
 
@@ -37,4 +33,3 @@ export function DashboardNavigation() {
         </>
     );
 }
-*/

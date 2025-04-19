@@ -1,45 +1,24 @@
--- CreateEnum
-CREATE TYPE "ProductStatus" AS ENUM ('draft', 'published', 'archived');
+-- Enums
 
--- CreateEnum
-CREATE TYPE "Category" AS ENUM ('male', 'female');
-
--- CreateTable
-CREATE TABLE "User" (
-    "id" TEXT NOT NULL,
-    "email" TEXT NOT NULL,
-    "firstName" TEXT NOT NULL,
-    "lastName" TEXT NOT NULL,
-    "profileImage" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+-- Users
+CREATE TABLE users (
+  id             TEXT           PRIMARY KEY,
+  email          TEXT           NOT NULL UNIQUE,
+  first_name     TEXT           NOT NULL,
+  last_name      TEXT           NOT NULL,
+  profile_image  TEXT           NOT NULL,
+  created_at     TIMESTAMP(3)   NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- CreateTable
-CREATE TABLE "Product" (
-    "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
-    "description" TEXT NOT NULL,
-    "status" "ProductStatus" NOT NULL,
-    "price" DOUBLE PRECISION NOT NULL,
-    "images" TEXT[],
-    "category" "Category" NOT NULL,
-    "isFeatured" BOOLEAN NOT NULL DEFAULT false,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
+-- Companies
+CREATE TABLE companies (
+  id             TEXT           PRIMARY KEY,
+  name           TEXT           NOT NULL,
+  address        TEXT,
+  is_client      BOOLEAN        NOT NULL DEFAULT FALSE,
+  user_id        TEXT           REFERENCES users(id) ON DELETE SET NULL,
+  created_at     TIMESTAMP(3)   NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- CreateTable
-CREATE TABLE "Banner" (
-    "id" TEXT NOT NULL,
-    "title" TEXT NOT NULL,
-    "imageString" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "Banner_pkey" PRIMARY KEY ("id")
-);
-
--- CreateIndex
-CREATE UNIQUE INDEX "User_id_key" ON "User"("id");
+-- Indexes for faster lookups
+CREATE INDEX idx_companies_user_id          ON companies(user_id);

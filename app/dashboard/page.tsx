@@ -1,56 +1,40 @@
-/*import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
-import { DollarSign, PartyPopper, ShoppingBag, User2 } from "lucide-react";
+// app/dashboard/page.tsx
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { User2, OfficeBuilding } from "lucide-react";
 import { prisma } from "../lib/db";
-import { DashboardStats } from "../componets/dashboard/DashboardStats";
-import { RecentSales } from "../componets/dashboard/RecentSales";
-import { Chart } from "../componets/dashboard/Chart";
 
-async function getData() {
-    const now = new Date()
-    const sevenDaysAgo = new Date()
-    sevenDaysAgo.setDate(now.getDate() - 7)
-    const data = await prisma.order.findMany({
-        where: {
-            createdAt:  {
-                gte: sevenDaysAgo,
-            },
-        },
-        select: {
-            amount: true,
-            createdAt: true,
-        },
-        orderBy: {
-            createdAt: "asc",
-        }
-    });
-    const result = data.map((item) => ({
-        date: new Intl.DateTimeFormat(['ban','id']).format(item.createdAt),
-        revenue: item.amount / 100,
-    }));
-    return result;
-    
-}
 export default async function Dashboard() {
-    const data = await getData();
-    return(
-        <>
-        <DashboardStats/>
-        <div className="grid gap-4 md:gp-8 lg:grid-cols-2 xl:grid-cols-3 mt-10">
-            <Card className="xl:col-span-2">
-                <CardHeader>
-                    <CardTitle>Transaction</CardTitle>
-                    <CardDescription>Recent Transaction from the last 7 days</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <Chart data={data}/>
-                </CardContent>
-            </Card>
-            <RecentSales />
-        </div>
-        </>
+  // grab counts from your new schema
+  const [userCount, companyCount] = await Promise.all([
+    prisma.user.count(),
+    prisma.company.count(),
+  ]);
 
-    )
-}*/
+  return (
+    <div className="space-y-8 p-6">
+      <h1 className="text-3xl font-bold">Dashboard</h1>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card>
+          <CardHeader className="flex justify-between items-center">
+            <CardTitle>Total Users</CardTitle>
+            <User2 className="h-6 w-6 text-blue-500" />
+          </CardHeader>
+          <CardContent>
+            <p className="text-4xl font-semibold">{userCount}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex justify-between items-center">
+            <CardTitle>Total Companies</CardTitle>
+            <OfficeBuilding className="h-6 w-6 text-green-500" />
+          </CardHeader>
+          <CardContent>
+            <p className="text-4xl font-semibold">{companyCount}</p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}

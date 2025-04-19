@@ -1,4 +1,4 @@
-/*"use client";
+"use client";
 import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line} from 'recharts';
 
 const aggregateData = (data: any) => {
@@ -37,4 +37,4 @@ export function Chart({ data }: iAppProps) {
             </LineChart>
         </ResponsiveContainer>
     )
-}*/
+}
