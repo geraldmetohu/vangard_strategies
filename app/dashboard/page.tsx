@@ -1,6 +1,6 @@
 // app/dashboard/page.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { User2, OfficeBuilding } from "lucide-react";
+import { Building2, User2 } from "lucide-react";
 import { prisma } from "../lib/db";
 
 export default async function Dashboard() {
@@ -28,7 +28,7 @@ export default async function Dashboard() {
         <Card>
           <CardHeader className="flex justify-between items-center">
             <CardTitle>Total Companies</CardTitle>
-            <OfficeBuilding className="h-6 w-6 text-green-500" />
+            <Building2 className="h-6 w-6 text-green-500" />
           </CardHeader>
           <CardContent>
             <p className="text-4xl font-semibold">{companyCount}</p>

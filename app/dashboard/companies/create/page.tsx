@@ -1,24 +1,20 @@
 "use client";
 
+import { useForm } from "@conform-to/react";
+import { parseWithZod } from "@conform-to/zod";
+import { companySchema } from "@/app/lib/zodSchemas";  // make sure this is the right import name
 import { CreateCompany } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+  Card, CardHeader, CardTitle, CardDescription,
+  CardContent, CardFooter
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
+import { SubmitButton } from "@/app/componets/SubmitButtons";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { useForm } from "@conform-to/react";
-import { parseWithZod } from "@conform-to/zod";
-import { companySchema } from "@/app/lib/zodSchemas";  // new schema for companies
-import { SubmitButton } from "@/app/componets/SubmitButtons";
 import { useActionState } from "react";
 
 export default function CompanyCreateRoute() {
@@ -51,6 +47,7 @@ export default function CompanyCreateRoute() {
 
         <CardContent>
           <div className="flex flex-col gap-6">
+            {/* Name */}
             <div className="flex flex-col gap-3">
               <Label htmlFor={fields.name.id}>Name</Label>
               <Input
@@ -62,6 +59,7 @@ export default function CompanyCreateRoute() {
               <p className="text-red-500">{fields.name.errors}</p>
             </div>
 
+            {/* Address */}
             <div className="flex flex-col gap-3">
               <Label htmlFor={fields.address.id}>Address</Label>
               <Input
@@ -73,11 +71,12 @@ export default function CompanyCreateRoute() {
               <p className="text-red-500">{fields.address.errors}</p>
             </div>
 
+            {/* Is Client */}
             <div className="flex items-center gap-3">
               <Switch
                 id={fields.isClient.id}
                 name={fields.isClient.name}
-                defaultChecked={fields.isClient.initialValue as boolean}
+                defaultChecked={fields.isClient.initialValue === "true"}
               />
               <Label htmlFor={fields.isClient.id}>Is Client?</Label>
             </div>
