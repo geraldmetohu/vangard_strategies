@@ -196,7 +196,7 @@ export default function ServicesPage() {
             Learn More
           </a>
         </div>
-      </section>
+      </section >
 
       {/* EXPANSION & DEVELOPMENT */}
       <section

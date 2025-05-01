@@ -42,16 +42,13 @@ export default function IndexPage() {
                 key={i}
                 initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.2 }}
                 className="flex flex-col justify-between h-full p-8 bg-white bg-opacity-10 backdrop-blur-md rounded-xl shadow-lg"
               >
                 <div>
                   <h3 className="text-2xl font-bold mb-4">
-                    {[
-                      "New Business Set Up",
-                      "Existing Business Upgrade",
-                      "Expansion & Development",
-                    ][i]}
+                    {["New Business Set Up", "Existing Business Upgrade", "Expansion & Development"][i]}
                   </h3>
                   <ul className="text-left space-y-2 text-sm text-gray-300">
                     {[
@@ -82,20 +79,11 @@ export default function IndexPage() {
                   </ul>
                 </div>
                 <a
-                  href={
-                    [
-                      "/services/new-business-setup",
-                      "/services/existing-upgrade",
-                      "/services/expansion-development",
-                    ][i]
-                  }
+                  href={["/services#new-business-setup", "/services#existing-business-upgrade", "/services#expansion-development"][i]}
+
                   className="mt-6 inline-block px-6 py-3 bg-green-500 text-white rounded-full font-semibold hover:bg-green-600 transition"
                 >
-                  {[
-                    "Explore",
-                    "Discover More",
-                    "Learn More",
-                  ][i]}
+                  {["Explore", "Discover More", "Learn More"][i]}
                 </a>
               </motion.div>
             ))}

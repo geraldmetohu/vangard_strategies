@@ -50,7 +50,7 @@ export function Hero({
           }}
           initial="hidden"
           animate={controls}
-          className="absolute top-1/4 left-2/8 transform -translate-x-1/2 -translate-y-1/2 text-[#fef9c3] drop-shadow-lg font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center w-full px-4"
+          className="absolute top-1/4 left-2/8 transform -translate-x-1/2 -translate-y-1/2 text-[#fef9c3] drop-shadow-lg font-extralight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center w-full px-4"
         >
           {title}
         </motion.h1>
@@ -63,8 +63,8 @@ export function Hero({
           }}
           initial="hidden"
           animate={controls}
-          className="absolute bottom-28 left-10 text-left text-[#879299] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-md"
-        >
+          className="absolute bottom-[10%] left-[5%] text-left text-[#879299] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-md"
+          >
           {subtitle}
         </motion.p>
       </div>
