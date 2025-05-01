@@ -1,58 +1,8 @@
 "use client";
-import { prisma } from "@/app/lib/db";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Image from "next/image";
-import { motion } from 'framer-motion';
-
-async function getData() {
-  const data = await prisma.banner.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
-  return data;
-}
-
-/* export async function Hero() {
-  const data = await getData();
-  return (
-    <Carousel className="w-full">
-      <CarouselContent>
-        {data.map((item) => (
-          <CarouselItem key={item.id}>
-            <div className="relative w-full h-screen">
-              <Image
-                alt="Banner Image"
-                src={item.imageString}
-                fill
-                className="object-cover w-full h-full"
-              />
-              {// Full overlay covering the image }
-              <div className="absolute inset-0 flex flex-col justify-center items-start p-8 bg-black bg-opacity-30">
-                // { Overlay text container with pulse animation }
-                <div className="bg-black bg-opacity-60 text-white p-4 rounded-lg shadow-lg animate-pulse">
-                  <h1 className="text-3xl lg:text-6xl font-bold">{item.title}</h1>
-                </div>
-              </div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      {/* Navigation buttons positioned vertically centered }
-      <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2" />
-      <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2" />
-    </Carousel>
-  );
-} */
-
-
-
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 type HeroProps = {
   title?: string;
@@ -61,39 +11,59 @@ type HeroProps = {
 };
 
 export function Hero({
-  title = 'Empowering Your Growth with Vangard Strategies',
-  subtitle = 'Comprehensive consultancy in procurement, tendering, and contract acquisition tailored to your success.',
-  imageUrl = '/VS.jpeg',
+  title = "Empowering Your Growth with Vangard Strategies",
+  subtitle = "Comprehensive consultancy in procurement, tendering, and contract acquisition tailored to your success.",
+  imageUrl = "/VS.jpeg",
 }: HeroProps) {
-  return (
-    <header className="relative w-full h-screen overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src={imageUrl}
-        alt="Hero Background"
-        fill
-        className="object-cover object-center"
-        priority
-      />
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.3 });
 
-      {/* Overlay and Animated Text */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center px-6 text-center">
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [inView, controls]);
+
+  return (
+    <header ref={ref} className="relative w-full overflow-hidden">
+      {/* Background Image */}
+      <div className="relative w-full">
+        <Image
+          src={imageUrl}
+          alt="Hero Background"
+          width={1920}
+          height={1080}
+          priority
+          className="w-full h-auto object-cover"
+        />
+      </div>
+
+      {/* Overlay with Positioned Animated Text */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 w-full h-full">
+        {/* Title - Center Justified */}
         <motion.h1
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-extrabold text-yellow-300 drop-shadow-lg"
+          variants={{
+            hidden: { opacity: 0, y: -100 },
+            visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+          }}
+          initial="hidden"
+          animate={controls}
+          className="absolute top-1/4 left-2/8 transform -translate-x-1/2 -translate-y-1/2 text-[#fef9c3] drop-shadow-lg font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center w-full px-4"
         >
           {title}
         </motion.h1>
 
+        {/* Subtitle - Bottom Left Justified */}
         <motion.p
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-4 text-xl md:text-2xl text-gray-300 max-w-2xl"
+          variants={{
+            hidden: { opacity: 0, x: 100 },
+            visible: { opacity: 1, x: 0, transition: { duration: 1, delay: 0.3 } },
+          }}
+          initial="hidden"
+          animate={controls}
+          className="absolute bottom-28 left-10 text-left text-[#879299] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-md"
         >
           {subtitle}
         </motion.p>

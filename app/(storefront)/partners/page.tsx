@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const partnerLogos = [
-  { name: "Framework Holder Co.", logo: "/logo_v.png" },
+  { name: "Blimey Solutions", logo: "/blimey.svg" },
   { name: "Compliance Experts Ltd.", logo: "/logo_v.png" },
   { name: "Tender Support Inc.", logo: "/logo_v.png" },
   { name: "Workforce Dev Group", logo: "/logo_v.png" },
@@ -38,7 +38,7 @@ export default function PartnersPage() {
             />
           </div>
           <div className="text-white">
-            <h2 className="text-4xl font-extrabold mb-4 text-yellow-300">Why Partner with Vangard?</h2>
+            <h2 className="text-4xl font-extrabold mb-4 text-[#cbed8f]">Why Partner with Vangard?</h2>
             <p className="mb-4 leading-relaxed">
               We forge alliances with accreditation bodies, legal experts, and leading firms
               to build a robust network. Our partners gain priority access to projects,
@@ -62,7 +62,7 @@ export default function PartnersPage() {
 
       {/* LOGOS GRID */}
       <section className="py-20 px-6 bg-gradient-to-r from-[#070F2B] to-[#1B1A55] text-white">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12  text-yellow-300">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12  text-[#cbed8f]">
           Trusted by Leading Organizations
         </h2>
         <div className="container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center">
@@ -87,7 +87,7 @@ export default function PartnersPage() {
       {/* CASE STUDIES */}
       <section className="py-20 px-6 bg-gradient-to-r from-[#1B1A55] to-[#070F2B] text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-yellow-300">Case Studies</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[#cbed8f]">Case Studies</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white bg-opacity-10 p-6 rounded-xl transition transform hover:scale-105">
               <h3 className="text-2xl font-semibold mb-4">Streamlining Public Tenders</h3>

@@ -1,12 +1,12 @@
-// app/(storefront)/contact/ContactFormClient.tsx
+// app/(storefront)/contact/ContactForm.tsx
 "use client";
 
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
-export default function ContactFormClient() {
+export default function ContactForm() {
   const searchParams = useSearchParams();
-  const sectorName = searchParams.get("msg") || "";
+  const sectorName = searchParams.get("msg") ?? "";
 
   const generateDetailedMessage = (sector: string) =>
     `Hi Vangard Strategies,

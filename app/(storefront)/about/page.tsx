@@ -25,12 +25,12 @@ export default function AboutUs() {
             />
           </div>
           <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-12">
-            <h2 className="text-3xl font-bold text-yellow-300">Who We Are</h2>
+            <h2 className="text-3xl font-bold text-[#cbed8f]">Who We Are</h2>
             <p className="mt-4 text-lg leading-relaxed">
-              Vangard is an expert consultancy providing end-to-end support in procurement, tendering, and contract acquisition. Our team comprises professionals with extensive experience in both UK and international procurement environments — including public sector frameworks, private sector supply chains, and cross-border contracting.
+              Vangard is an expert consultancy providing end-to-end support in procurement, tendering, and contract acquisition. Our team comprises professionals with extensive experience in both UK and international procurement environments; including public sector frameworks, private sector supply chains, and border crossing contracting.
             </p>
             <p className="mt-4 text-lg leading-relaxed">
-              We offer a comprehensive range of services designed to assist organisations through each stage of the procurement lifecycle — from initial compliance and accreditation to bid preparation, submission, and post-award obligations. Our approach is tailored, methodical, and rooted in a thorough understanding of procurement regulations and industry best practices.
+              We offer a comprehensive range of services designed to assist organisations through each stage of the procurement lifecycle; from initial compliance and accreditation to bid preparation, submission, and post-award obligations. Our approach is tailored, methodical, and rooted in a thorough understanding of procurement regulations and industry best practices.
             </p>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function AboutUs() {
       <section className="py-16 px-6 bg-gradient-to-r from-[#070F2B] to-[#1B1A55] text-white">
         <div className="container mx-auto flex flex-col md:flex-row items-center">
           <div className="w-full md:w-1/2 md:pr-12">
-            <h2 className="text-3xl font-bold text-yellow-300">Our Process</h2>
+            <h2 className="text-3xl font-bold text-[#cbed8f]">Our Process</h2>
             <p className="mt-4 text-lg leading-relaxed">
               We ensure each client’s submission is accurate, timely, and reflects the technical and commercial strengths of their business. Our process is designed to maximise your chance of success while maintaining full compliance with procurement standards.
             </p>
@@ -60,7 +60,7 @@ export default function AboutUs() {
       {/* Sectors Section */}
       <section id="sectors" className="py-16 px-6 bg-gradient-to-l from-[#070F2B] to-[#1B1A55] text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold tracking-wide text-yellow-300">
+          <h2 className="text-4xl font-bold tracking-wide text-[#cbed8f]">
             Our Sectors
           </h2>
           <p className="mt-4 text-xl">
@@ -91,7 +91,7 @@ export default function AboutUs() {
       {/* Team Section */}
       <section className="py-16 px-6 bg-gradient-to-r from-[#070F2B] to-[#1B1A55] text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-yellow-300">Meet Our Team</h2>
+          <h2 className="text-4xl font-bold text-[#cbed8f]">Meet Our Team</h2>
           <p className="mt-4 text-xl">
             Our dedicated professionals drive our success.
           </p>

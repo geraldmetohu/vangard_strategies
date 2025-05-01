@@ -1,152 +1,105 @@
+"use client";
+
 import Link from "next/link";
 import { NavbarLinks } from "./NavBarLinks";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { Button } from "@/components/ui/button";
-import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import Image from "next/image";
+import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { DialogTitle } from '@radix-ui/react-dialog';
+import { DialogTitle } from "@radix-ui/react-dialog";
+import { Button } from "@/components/ui/button";
+import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { UserDropdown } from "./UserDropdown";
 
-export async function NavBar() {
-  // This function runs in a Node.js server environment.
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
+export function NavBar({ user }: { user?: any }) {
+  const [open, setOpen] = useState(false);
 
+  const closeMenu = () => setOpen(false);
 
   return (
-<nav className="sticky top-0 z-50 w-full bg-[#030712] text-[#fefce8]">
-  <div className=" mx-2 px-4 sm:px-6 lg:pl-8 pr-0 py-4">
-        {/* Desktop Header (visible on md and up) using a 10-column grid */}
+    <nav className="sticky top-0 z-50 w-full bg-[#030712] text-[#fefce8] font-normal">
+      <div className="mx-2 px-4 sm:px-6 lg:pl-8 pr-0 py-4">
+        {/* Desktop Header */}
         <div className="hidden md:grid grid-cols-12 items-stretch gap-1">
-          {/* Columns 1-2: Logo & Title */}
           <div className="col-span-4 flex items-center">
             <Link href="/" className="flex items-center gap-1">
-              <Image
-                src="/logo_v.png"
-                alt="Vangard Logo"
-                width={120}
-                height={120}
-                className="object-contain"
-              />
-              <span className="text-2xl font-mono font-semibold whitespace-nowrap">
-                Vangard Strategies
-              </span>
+              <Image src="/logo_v.png" alt="Vangard Logo" width={120} height={120} className="object-contain" />
+              <span className="text-3xl font-semibold whitespace-nowrap">Vangard Strategies</span>
             </Link>
           </div>
-
-          {/* Column 3: Spacer */}
           <div className="col-span-1"></div>
-
-          {/* Columns 4-7: Navigation Links (centered) */}
           <div className="col-span-4 flex justify-center">
-            <NavbarLinks vertical={false} />
+            <NavbarLinks />
           </div>
-
-          {/* Column 8: Spacer */}
           <div className="col-span-1"></div>
-
-          {/* Columns 9-10: Auth Buttons or User Dropdown */}
           <div className="col-span-2 flex justify-evenly items-center space-x-1">
             {user ? (
               <UserDropdown
-                email={user.email as string}
-                name={user.given_name as string}
-                userImage={
-                  user.picture ?? `https://avatar.vercel.sh/${user.given_name}`
-                }
+                email={user.email}
+                name={user.given_name}
+                userImage={user.picture ?? `https://avatar.vercel.sh/${user.given_name}`}
               />
             ) : (
               <>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="text-green-500 bg-white border border-green-500 hover:text-green-700 hover:bg-gray-200 hover:border-green-700 text-sm"
-                >
+                <Button variant="outline" asChild className="text-green-500 bg-white border border-green-500 hover:text-green-700 hover:bg-gray-200 hover:border-green-700 text-sm">
                   <LoginLink>Sign In</LoginLink>
                 </Button>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="text-green-500 bg-white border border-green-500 hover:text-green-700 hover:bg-gray-200 hover:border-green-700 text-sm"
-                >
+                <Button variant="outline" asChild className="text-green-500 bg-white border border-green-500 hover:text-green-700 hover:bg-gray-200 hover:border-green-700 text-sm">
                   <RegisterLink>Create Account</RegisterLink>
                 </Button>
               </>
             )}
-          </div> 
+          </div>
         </div>
 
-        {/* Mobile Header (visible below md) */}
-        <div className="flex md:hidden items-center justify-between">
-          {/* Left-aligned Logo & Title */}
+        {/* Mobile Header */}
+        <div className="flex md:hidden items-center justify-between ">
           <div className="flex-grow text-left">
             <Link href="/" className="inline-flex items-center gap-1">
-              <Image
-                src="/logo_v.png"
-                alt="Vangard Logo"
-                width={80}
-                height={80}
-                className="object-contain"
-              />
-              <span className="text-xl font-mono font-semibold whitespace-nowrap">
-                Vangard Strategies
-              </span>
+              <Image src="/logo_v.png" alt="Vangard Logo" width={120} height={120} className="object-contain" />
+              <span className="text-xl font-semibold whitespace-nowrap ">Vangard Strategies</span>
             </Link>
           </div>
 
-          {/* Hamburger Button */}
           <div className="flex-shrink-0">
-            <Sheet>
+            <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
-                  <MenuIcon className="w-6 h-6" />
+                  <MenuIcon className="w-7 h-7" />
                 </Button>
               </SheetTrigger>
-              <SheetContent
-                side="left"
-                className="p-4 bg-black bg-opacity-80 pt-6"
-              >
-                {/* Provide a hidden DialogTitle for accessibility */}
-                <VisuallyHidden>
-                  <DialogTitle>Navigation Menu</DialogTitle>
-                </VisuallyHidden>
-                 <div className="flex flex-col space-y-4">
-                  {/* First: Navigation Links as a vertical list */}
-                  <div>
-                    <NavbarLinks vertical={true} />
-                  </div>
-                  {/* Second: Auth Buttons or User Dropdown, arranged vertically */}
+              <SheetContent side="right" className="p-4 bg-black bg-opacity-70 pt-6">
+                <DialogTitle className="sr-only">Navigation Menu</DialogTitle>
+
+                <div className="mb-4 border-b pb-4 flex items-center  gap-3">
+                  <Image src="/logo_v.png" alt="Vangard Logo" width={40} height={40} className="object-contain" />
+                  <span className="text-lg font-semibold text-[#fefce8]">Vangard Strategies</span>
+                </div>
+
+                <NavbarLinks vertical={true} onNavigate={closeMenu} />
+
+                <div className="mt-4">
                   {user ? (
                     <UserDropdown
-                      email={user.email as string}
-                      name={user.given_name as string}
-                      userImage={
-                        user.picture ?? 
-                        `https://avatar.vercel.sh/${user.given_name}`
-                      }
+                      email={user.email}
+                      name={user.given_name}
+                      userImage={user.picture ?? `https://avatar.vercel.sh/${user.given_name}`}
                     />
                   ) : (
                     <div className="flex flex-col space-y-2">
-                      <Button
-                        variant="outline"
-                        asChild
-                        className="text-green-500 bg-white border border-green-500 hover:text-green-700 hover:bg-gray-200 hover:border-green-700 text-sm"
-                      >
-                        <LoginLink>Sign In</LoginLink>
-                      </Button>
-                      <Button
-                        variant="outline"
-                        asChild
-                        className="text-green-500 bg-white border border-green-500 hover:text-green-700 hover:bg-gray-200 hover:border-green-700 text-sm"
-                      >
-                        <RegisterLink>Create Account</RegisterLink>
-                      </Button>
+                      <SheetTrigger asChild>
+                        <Button variant="outline" className="text-green-500 bg-white border border-green-500 hover:text-green-700 hover:bg-gray-200 hover:border-green-700 text-sm">
+                          <LoginLink>Sign In</LoginLink>
+                        </Button>
+                      </SheetTrigger>
+                      <SheetTrigger asChild>
+                        <Button variant="outline" className="text-green-500 bg-white border border-green-500 hover:text-green-700 hover:bg-gray-200 hover:border-green-700 text-sm">
+                          <RegisterLink>Create Account</RegisterLink>
+                        </Button>
+                      </SheetTrigger>
                     </div>
                   )}
-                </div> 
+                </div>
               </SheetContent>
             </Sheet>
           </div>
