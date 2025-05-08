@@ -17,7 +17,7 @@ export function Footer() {
               className="rounded"
             />
             <div>
-              <h2 className="text-xl font-semibold">Vangard Strategies</h2>
+              <h2 className="text-xl font-semibold">VANGARD STRATEGIES</h2>
               <p className="text-sm text-green-400 italic">"Charting Your Path to Success"</p>
             </div>
           </div>

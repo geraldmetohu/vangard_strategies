@@ -24,7 +24,7 @@ export function NavBar({ user }: { user?: any }) {
           <div className="col-span-4 flex items-center">
             <Link href="/" className="flex items-center gap-1">
               <Image src="/logo_v.png" alt="Vangard Logo" width={120} height={120} className="object-contain" />
-              <span className="text-4xl font-semibold whitespace-nowrap">Vangard Strategies</span>
+              <span className="text-4xl font-semibold whitespace-nowrap">VANGARD STRATEGIES</span>
             </Link>
           </div>
           <div className="col-span-1"></div>
