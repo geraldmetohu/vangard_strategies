@@ -78,18 +78,8 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="text-gray-400 hover:text-white transition">
-                Terms & Conditions
-              </Link>
-            </li>
-            <li>
               <Link href="/privacy" className="text-gray-400 hover:text-white transition">
                 Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link href="/refund" className="text-gray-400 hover:text-white transition">
-                Refund Policy
               </Link>
             </li>
           </ul>
