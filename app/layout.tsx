@@ -30,24 +30,24 @@ export const metadata: Metadata = {
     "business setup",
     "ISO accreditation support",
     "company compliance services",
-    "business development UK",
+    "business development UK"
   ],
   icons: {
-    icon: "/logo_v.png", // make sure this exists in the public folder
+    icon: "/favicon.ico", // used for browser tab
   },
   openGraph: {
     title: "Vangard Strategies | Business Consultancy & Tender Support UK",
     description:
       "Experts in business setup, compliance, accreditation, and helping SMEs win government tenders and private sector contracts in the UK.",
-    url: "https://www.vangardconsulting.com",
+    url: "https://www.vangardstrategies.com",
     siteName: "Vangard Strategies",
     images: [
       {
-        url: "https://www.vangardconsulting.com/VS.jpg", // replace with actual Open Graph image
+        url: "https://www.vangardstrategies.com/logo_v.png",
         width: 1200,
         height: 630,
         alt: "Vangard Strategies - UK Business Consultancy",
-      },
+      }
     ],
     type: "website",
   },
@@ -62,7 +62,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Structured Data for SEO */}
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* Structured Data for Google Rich Results */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -70,13 +72,13 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Vangard Strategies",
-              url: "https://www.vangardconsulting.com",
-              logo: "https://www.vangardconsulting.com/logo_v.png",
+              url: "https://www.vangardstrategies.com",
+              logo: "https://www.vangardstrategies.com/logo_v.png",
               description:
                 "Helping businesses with setup, certification, policy creation, and public/private sector tender success in the UK.",
               sameAs: [
-                "https://www.linkedin.com/company/vangard-strategies", // optional
-              ],
+                "https://www.linkedin.com/company/vangard-strategies"
+              ]
             }),
           }}
         />
