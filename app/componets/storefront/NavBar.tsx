@@ -21,7 +21,7 @@ export function NavBar({ user }: { user?: any }) {
       <div className="mx-2 px-4 sm:px-6 lg:pl-8 pr-0 py-4">
         {/* Desktop Header */}
         <div className="hidden md:grid grid-cols-12 items-stretch gap-1">
-          <div className="col-span-4 flex items-center">
+          <div className="col-span-4 flex items-left">
             <Link href="/" className="flex items-center gap-1">
               <Image src="/logo_v.png" alt="Vangard Logo" width={120} height={120} className="object-contain" />
               <span className="text-4xl font-semibold whitespace-nowrap">VANGARD STRATEGIES</span>
@@ -53,19 +53,18 @@ export function NavBar({ user }: { user?: any }) {
         </div>
 
         {/* Mobile Header */}
-        <div className="flex md:hidden items-center justify-between ">
-          <div className="flex-grow text-left">
-            <Link href="/" className="inline-flex items-center gap-1">
-              <Image src="/logo_v.png" alt="Vangard Logo" width={120} height={120} className="object-contain" />
-              <span className="text-xl font-semibold whitespace-nowrap ">Vangard Strategies</span>
-            </Link>
-          </div>
+<div className="flex md:hidden justify-between items-center">
+  <div className="flex items-center gap-2">
+    <Image src="/logo_v.png" alt="Vangard Logo" width={40} height={40} className="object-contain" />
+    <span className="text-lg font-semibold">VANGARD STRATEGIES</span>
+  </div>
+
 
           <div className="flex-shrink-0">
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
-                  <MenuIcon className="w-7 h-7" />
+                  <MenuIcon className="w-7 h-7 justify-end" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="p-4 bg-black bg-opacity-70 pt-6">
