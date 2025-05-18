@@ -72,7 +72,7 @@ export function NavBar({ user }: { user?: any }) {
 
                 <div className="mb-4 border-b pb-4 flex items-center  gap-3">
                   <Image src="/logo_v.png" alt="Vangard Logo" width={40} height={40} className="object-contain" />
-                  <span className="text-xl font-semibold text-[#fefce8]">Vangard Strategies</span>
+                  <span className="text-xl font-semibold text-[#fefce8]">VANGARD STRATEGIES</span>
                 </div>
 
                 <NavbarLinks vertical={true} onNavigate={closeMenu} />
