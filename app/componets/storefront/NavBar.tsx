@@ -53,9 +53,9 @@ export function NavBar({ user }: { user?: any }) {
         </div>
 
         {/* Mobile Header */}
-<div className="flex md:hidden justify-between items-center">
+<div className="flex md:hidden justify-between items-center py-3">
   <div className="flex items-center gap-1">
-    <Image src="/logo_v.png" alt="Vangard Logo" width={40} height={40} className="object-contain" />
+    <Image src="/logo_v.png" alt="Vangard Logo" width={60} height={60} className="object-contain" />
     <span className="text-lg font-semibold">VANGARD STRATEGIES</span>
   </div>
 
