@@ -18,13 +18,13 @@ export function NavBar({ user }: { user?: any }) {
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-[#030712] text-[#fefce8] font-normal">
-      <div className="mx-2 px-4 sm:px-6 lg:pl-8 pr-0 py-4">
+      <div className="mx-2 px-4 sm:px-6 lg:pl-8 pr-0 py-0">
         {/* Desktop Header */}
         <div className="hidden md:grid grid-cols-12 items-stretch gap-1">
           <div className="col-span-4 flex items-left">
             <Link href="/" className="flex items-center gap-1">
-              <Image src="/logo_v.png" alt="Vangard Logo" width={120} height={120} className="object-contain" />
-              <span className="text-4xl font-semibold whitespace-nowrap">VANGARD STRATEGIES</span>
+              <Image src="/logo_v.png" alt="Vangard Logo" width={100} height={100} className="object-contain" />
+              <span className="text-2xl font-semibold whitespace-nowrap">VANGARD STRATEGIES</span>
             </Link>
           </div>
           <div className="col-span-1"></div>
@@ -54,7 +54,7 @@ export function NavBar({ user }: { user?: any }) {
 
         {/* Mobile Header */}
 <div className="flex md:hidden justify-between items-center">
-  <div className="flex items-center gap-2">
+  <div className="flex items-center gap-1">
     <Image src="/logo_v.png" alt="Vangard Logo" width={40} height={40} className="object-contain" />
     <span className="text-lg font-semibold">VANGARD STRATEGIES</span>
   </div>
